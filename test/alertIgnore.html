@@ -1,0 +1,22 @@
+<html>
+<script>
+	function check() {
+	  var detectAll = function (argument) {
+	      var start = Date.now();
+		  alert('Click Ok to continue');
+		  var elapse = Date.now() - start;
+		  if (elapse < 1000 / 15) {
+		    return true;
+		  } else {
+		    return false;
+		  }
+	  };
+	  if (detectAll()) {
+	    window.location.replace("/compliant");
+	  } else {
+	    window.location.replace("/aggressive");
+	  }
+	}
+	check();
+</script>
+</html>

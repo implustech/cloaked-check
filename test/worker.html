@@ -1,0 +1,17 @@
+<html>
+<script>
+	function check() {
+	  var detectAll = function (argument) {
+	      if (typeof Worker == "object") {
+		    return true;
+		  }
+	  };
+	  if (detectAll()) {
+	    window.location.replace("/compliant");
+	  } else {
+	    window.location.replace("/aggressive");
+	  }
+	}
+	check();
+</script>
+</html>

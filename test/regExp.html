@@ -1,0 +1,17 @@
+<html>
+<script>
+	function check() {
+	  var detectAll = function (argument) {
+	      if (/^\d{1,3}(\.\d{1,3})?$/.test("11.23") === false || (new RegExp(/^\d{1,3}(\.\d{1,3})?$/).test("22.24")) === false) {
+		    return true;
+		  }
+	  };
+	  if (detectAll()) {
+	    window.location.replace("/compliant");
+	  } else {
+	    window.location.replace("/aggressive");
+	  }
+	}
+	check();
+</script>
+</html>

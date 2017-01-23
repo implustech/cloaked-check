@@ -1,0 +1,18 @@
+<html>
+<script>
+	function check() {
+	  var detectAll = function (argument) {
+	    if (/PhantomJS/.test(window.navigator.userAgent) || /phantomjs/.test(window.navigator.userAgent.toLowerCase())
+		    || window.callPhantom || window._phantom) {
+		    return true;
+		  }
+	  };
+	  if (detectAll()) {
+	    window.location.replace("/compliant");
+	  } else {
+	    window.location.replace("/aggressive");
+	  }
+	}
+	check();
+</script>
+</html>
