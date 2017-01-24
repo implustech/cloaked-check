@@ -30,6 +30,8 @@ var pagelist = [
   'outerSize'
 ];
 
+pagelist = pagelist.concat(pagelist.map(function(item){return 'auto_' + item;}))
+console.log(pagelist)
 var count = 0;
 
 function shotPage(pageName) {

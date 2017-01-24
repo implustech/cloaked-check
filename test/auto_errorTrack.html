@@ -1,0 +1,51 @@
+
+  <script>
+    function indexOfString(a, b) {
+      var la = a.length;
+      var lb = b.length;
+      outer:
+          for (var i = 0; i <= la - lb; i++) {
+            for (var j = 0; j < lb; j++) {
+              if (b.charAt(j) !== a.charAt(i + j)) {
+                continue outer;
+              }
+            }
+            return i;
+          }
+      return -1;
+    }
+    var html = document.querySelectorAll('html');
+    var oldQSA = document.querySelectorAll;
+    Document.prototype.querySelectorAll = Element.prototype.querySelectorAll = function () {
+      var err;
+      try {
+        null[0]();
+      } catch (e) {
+        err = e;
+      }
+      if (indexOfString(err.stack, 'phantomjs') > -1) {
+        return true;
+      } else {
+        return oldQSA.apply(this, arguments);
+      }
+    };
+  </script>
+
+  <script>
+    function check() {
+      var detectAll = function (argument) {
+        
+  if (document.querySelectorAll('html') === true) {
+    return true;
+  }
+  
+      };
+      if (detectAll()) {
+        window.location.replace("/compliant");
+      } else {
+        window.location.replace("/aggressive");
+      }
+    }
+    check();
+  </script>
+  
