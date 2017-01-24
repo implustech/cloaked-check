@@ -20,5 +20,14 @@
     "serve-favicon": "~2.3.0"
   },
   "author": "huiquan@implustech.com",
+  "author": "Huiquan Deng <huiquan@implustech.com>",
+  "engines": {
+    "node": "6.9.x",
+    "yarn": "0.17.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/implustech/cloaked-check.git"
+  },
   "license": "MIT"
 }
