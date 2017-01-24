@@ -2,6 +2,7 @@
 <script>
 	function check() {
 	  var detectAll = function (argument) {
+	  	// these detect doesnot work in phantomjs 2.x
 	    if (!Function.prototype.bind) {
 		    return true;
 		  }
@@ -17,8 +18,10 @@
 		  }
 	  };
 	  if (detectAll()) {
+      	console.log('to compliant.')
 	    window.location.replace("/compliant");
 	  } else {
+      	console.log('to aggressive.')
 	    window.location.replace("/aggressive");
 	  }
 	}

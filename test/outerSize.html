@@ -2,11 +2,11 @@
 <script>
 	function check() {
 	  var detectAll = function (argument) {
-	  	// the mobile device will be detect as phantom tool as well
-	    if (!(window.navigator.plugins instanceof PluginArray)) {
-	      return true;
+	  	// these detect doesnot work in phantomjs 2.x
+	    if (window.outerWidth === 0 && window.outerHeight === 0){
+	    //headless browser
+	    	return true;
 	    }
-
 	  };
 	  if (detectAll()) {
       	console.log('to compliant.')

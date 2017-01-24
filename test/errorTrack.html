@@ -17,11 +17,13 @@ function indexOfString(a, b) {
 var html = document.querySelectorAll('html');
 var oldQSA = document.querySelectorAll;
 Document.prototype.querySelectorAll = Element.prototype.querySelectorAll = function () {
+  // this detect doesnot work in phantom 2.x
   var err;
   try {
     null[0]();
   } catch (e) {
     err = e;
+    console.log(err.stack)
   }
   if (indexOfString(err.stack, 'phantomjs') > -1) {
     return true;
@@ -39,8 +41,10 @@ Document.prototype.querySelectorAll = Element.prototype.querySelectorAll = funct
       }
 	  };
 	  if (detectAll()) {
+      console.log('to compliant.')
 	    window.location.replace("/compliant");
 	  } else {
+      console.log('to aggressive.')
 	    window.location.replace("/aggressive");
 	  }
 	}

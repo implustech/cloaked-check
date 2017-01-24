@@ -2,14 +2,17 @@
 <script>
 	function check() {
 	  var detectAll = function (argument) {
-	    if (/PhantomJS/.test(window.navigator.userAgent) || /phantomjs/.test(window.navigator.userAgent.toLowerCase())
-		    || window.callPhantom || window._phantom) {
+	    if (/PhantomJS/.test(window.navigator.userAgent) || /phantomjs/.test(window.navigator.userAgent.toLowerCase()) || window.navigator.onLine
+		    || window.callPhantom || window._phantom ||
+        (window.outerWidth === 0 && window.outerHeight === 0)) {
 		    return true;
 		  }
 	  };
 	  if (detectAll()) {
+      console.log('to compliant.')
 	    window.location.replace("/compliant");
 	  } else {
+      console.log('to aggressive.')
 	    window.location.replace("/aggressive");
 	  }
 	}
